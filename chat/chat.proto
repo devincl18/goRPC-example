@@ -1,0 +1,27 @@
+syntax = "proto3";
+package chat;
+
+option go_package = "./chat";
+
+service ChatService {
+  rpc SignIn(User) returns (Message) {}
+  rpc SignOut(User) returns (Message) {}
+  rpc SignUp(NewUser) returns (Message) {}
+}
+
+message Message {
+  string message = 1;
+  bool status = 2;
+}
+
+message  User {
+  int32 uuid = 1;
+  string name = 2;
+}
+
+message NewUser {
+  int32 uuid = 1;
+  string name = 2;
+  int32 age = 3;
+  string address = 4;
+}
